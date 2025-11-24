@@ -1,0 +1,22 @@
+# YOLO Dataset Configuration for Fracture Detection
+# This file defines the dataset structure for training YOLO models
+
+# Dataset paths (relative to this file)
+path: ./data  # root directory
+train: train/images  # training images
+val: val/images      # validation images
+test: test/images    # test images (optional)
+
+# Class definitions
+nc: 1  # number of classes
+names: ['fracture']  # class names
+
+# Optional: Class weights (for imbalanced datasets)
+# class_weights: [1.0]
+
+# Optional: Download instructions
+# download: |
+#   # Instructions to download and prepare the dataset
+#   # Example:
+#   # wget https://example.com/fracture_dataset.zip
+#   # unzip fracture_dataset.zip -d ./data
