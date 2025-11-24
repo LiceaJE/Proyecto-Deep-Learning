@@ -1,108 +1,82 @@
-# Proyecto-Deep-Learning
+# Bone Fracture Detection Using YOLOv8 and Transfer Learning
 
-En este repositorio se encuentra el proyecto final de la materia Deep Learning, acerca de intentos de identificar fracturas mediante modelos YOLO en imágenes de radiografías.
+Este proyecto aplica técnicas de aprendizaje profundo para la detección automática de fracturas óseas en radiografías, utilizando modelos de detección de objetos (YOLOv8) y comparando distintos enfoques: modelo base, modelo con data augmentation y un modelo ajustado mediante transferencia de aprendizaje (fine-tuning de pesos preentrenados).
 
-## Descripción del Proyecto
+El objetivo es analizar el impacto de las distintas configuraciones de entrenamiento en el desempeño del modelo.
 
-Este proyecto explora el rendimiento de diferentes modelos YOLO (You Only Look Once) con diversos hiperparámetros para la detección automática de fracturas en imágenes de radiografías. El análisis se realiza en un Jupyter Notebook interactivo que compara múltiples arquitecturas y configuraciones.
+---
 
-## Contenido del Repositorio
+## Tabla de Contenidos
+- Introducción  
+- Dataset  
+- Estructura del proyecto  
+- Modelos entrenados  
+- Conclusiones  
 
-- **`model_exploration.ipynb`**: Notebook principal con exploración completa de modelos y hiperparámetros
-- **`requirements.txt`**: Dependencias de Python necesarias
-- **`dataset.yaml`**: Plantilla de configuración para el dataset YOLO
-- **`.gitignore`**: Archivos y directorios excluidos del control de versiones
+---
 
-## Inicio Rápido
+## Introducción
 
-### 1. Clonar el repositorio
-```bash
-git clone https://github.com/LiceaJE/Proyecto-Deep-Learning.git
-cd Proyecto-Deep-Learning
-```
+La detección automática de fracturas óseas en radiografías es un problema relevante en el diagnóstico médico asistido por computadora. En este proyecto se entrenan y comparan distintas variantes del modelo YOLOv8 para detectar fracturas en diferentes regiones anatómicas del miembro superior.
 
-### 2. Instalar dependencias
-```bash
-pip install -r requirements.txt
-```
+Se desarrollaron tres modelos:
 
-### 3. Preparar los datos
-Crear la siguiente estructura de directorios:
-```
-data/
-├── train/
-│   ├── images/
-│   └── labels/
-├── val/
-│   ├── images/
-│   └── labels/
-└── test/
-    ├── images/
-    └── labels/
-```
+1. Modelo 1: YOLOv8n base sin augmentations.  
+2. Modelo 2: YOLOv8n con data augmentation y early stopping.  
+3. Modelo 3: Modelo preentrenado descargado externamente y ajustado (fine-tuning) al dataset.  
 
-### 4. Configurar dataset.yaml
-Editar el archivo `dataset.yaml` con las rutas correctas de tu dataset.
+El desempeño de cada modelo se evalúa mediante las métricas estándar de detección: precisión, recall, mAP50 y mAP50-95.
 
-### 5. Ejecutar el notebook
-```bash
-jupyter notebook model_exploration.ipynb
-```
+---
 
-## Características del Notebook
+## Dataset
 
-### Modelos Evaluados
-- YOLOv5 (nano, small, medium)
-- YOLOv8 (nano, small, medium)
+El dataset utilizado es:
 
-### Hiperparámetros Explorados
-- Learning rate (0.001 - 0.01)
-- Batch size (8, 16, 32)
-- Image size (416, 640, 1280)
-- Epochs (50, 100)
-- Optimizers (SGD, Adam)
+**Bone Fracture Detection (YOLOv8 Format)**  
+Autor: Pk Darabi  
+Fuente: Kaggle
 
-### Análisis Incluidos
-- Comparación de arquitecturas YOLO
-- Exploración de hiperparámetros
-- Visualización de métricas (mAP, Precision, Recall)
-- Matrices de correlación
-- Análisis de trade-offs
-- Configuración óptima recomendada
+Enlace:  
+https://www.kaggle.com/datasets/pkdarabi/bone-fracture-detection-computer-vision-project
 
-## Resultados
+El conjunto de datos contiene radiografías clasificadas en siete categorías:
 
-El notebook genera:
-- Gráficos comparativos de rendimiento
-- Tablas de resultados detalladas
-- Archivo CSV con resultados completos
-- Configuración óptima en formato JSON
-- Visualizaciones de trade-offs
+| ID | Clase               |
+|----|----------------------|
+| 0  | elbow positive       |
+| 1  | fingers positive     |
+| 2  | forearm fracture     |
+| 3  | humerus fracture     |
+| 4  | humerus              |
+| 5  | shoulder fracture    |
+| 6  | wrist positive       |
 
-## Requisitos
+---
 
-- Python 3.9+
-- CUDA (opcional, para entrenamiento con GPU)
-- 8GB+ RAM recomendado
-- Espacio en disco para datasets y modelos
+## Modelos entrenados
 
-## Uso del Notebook
+### Modelo 1 — YOLOv8 Base
+- Entrenado desde cero con configuración mínima.
+- Sin data augmentation.
+- Evidencia de sobreajuste en etapas finales.
 
-El notebook incluye dos modos de operación:
+### Modelo 2 — YOLOv8 con Data Augmentation
+- Se aplicaron técnicas como Blur, MedianBlur, GrayScale, CLAHE y flip horizontal.
+- Early stopping con paciencia de 20.
+- Mejor generalización que el modelo base.
 
-1. **Modo Demostración**: Genera datos sintéticos para explorar la estructura y visualizaciones
-2. **Modo Entrenamiento Real**: Descomentar las secciones de entrenamiento para ejecutar con datos reales
+### Modelo 3 — Modelo Preentrenado + Fine-Tuning
+- Se utilizó un modelo preentrenado externo especializado en fracturas.
+- Se aplicó una tasa de aprendizaje más baja.
+- Mejor desempeño en mAP general.
 
-Para entrenamiento real, descomentar las líneas indicadas en las secciones 5 y 6 del notebook.
+---
 
-## Contribuciones
+## Conlcusiones
 
-Este es un proyecto académico de la materia Deep Learning. Las sugerencias y mejoras son bienvenidas.
+Efectividad del Fine-Tuning: Se demostró que el Fine-Tuning fue exitoso para adaptar un modelo externo al dominio específico del proyecto, elevando su Recall de ~0.01 a ~0.27. Sin embargo, no superó a los modelos entrenados desde cero.
 
-## Licencia
+Superioridad del Data Augmentation: El Modelo 2 demuestra ser la arquitectura más equilibrada. El aumento de datos permitió al modelo generalizar mejor, logrando la mejor Precisión y el mejor mAP del grupo.
 
-Este proyecto es parte de un trabajo académico en Deep Learning.
-
-## Autores
-
-Jesús Emiliano Licea Román
+Limitación del Hardware/Datos: El hecho de que los tres modelos se estanquen en un mAP de ~0.24 sugiere que el problema ya no se resuelve con hiperparámetros. La resolución de entrada (640px) y la arquitectura pequeña (Nano) son cuellos de botella físicos que impiden detectar las fracturas más finas.
