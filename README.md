@@ -2,18 +2,18 @@
 
 En este repositorio se encuentra el proyecto final de la materia Deep Learning, acerca de intentos de identificar fracturas mediante modelos YOLO en imágenes de radiografías.
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Este proyecto explora el rendimiento de diferentes modelos YOLO (You Only Look Once) con diversos hiperparámetros para la detección automática de fracturas en imágenes de radiografías. El análisis se realiza en un Jupyter Notebook interactivo que compara múltiples arquitecturas y configuraciones.
 
-## 🗂️ Contenido del Repositorio
+## Contenido del Repositorio
 
 - **`model_exploration.ipynb`**: Notebook principal con exploración completa de modelos y hiperparámetros
 - **`requirements.txt`**: Dependencias de Python necesarias
 - **`dataset.yaml`**: Plantilla de configuración para el dataset YOLO
 - **`.gitignore`**: Archivos y directorios excluidos del control de versiones
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### 1. Clonar el repositorio
 ```bash
@@ -49,7 +49,7 @@ Editar el archivo `dataset.yaml` con las rutas correctas de tu dataset.
 jupyter notebook model_exploration.ipynb
 ```
 
-## 📊 Características del Notebook
+## Características del Notebook
 
 ### Modelos Evaluados
 - YOLOv5 (nano, small, medium)
@@ -70,7 +70,7 @@ jupyter notebook model_exploration.ipynb
 - Análisis de trade-offs
 - Configuración óptima recomendada
 
-## 📈 Resultados
+## Resultados
 
 El notebook genera:
 - Gráficos comparativos de rendimiento
@@ -79,14 +79,14 @@ El notebook genera:
 - Configuración óptima en formato JSON
 - Visualizaciones de trade-offs
 
-## 🛠️ Requisitos
+## Requisitos
 
 - Python 3.9+
 - CUDA (opcional, para entrenamiento con GPU)
 - 8GB+ RAM recomendado
 - Espacio en disco para datasets y modelos
 
-## 📝 Uso del Notebook
+## Uso del Notebook
 
 El notebook incluye dos modos de operación:
 
@@ -95,14 +95,14 @@ El notebook incluye dos modos de operación:
 
 Para entrenamiento real, descomentar las líneas indicadas en las secciones 5 y 6 del notebook.
 
-## 🤝 Contribuciones
+## Contribuciones
 
 Este es un proyecto académico de la materia Deep Learning. Las sugerencias y mejoras son bienvenidas.
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es parte de un trabajo académico en Deep Learning.
 
-## 👥 Autores
+## Autores
 
-Proyecto Final - Materia Deep Learning
+Jesús Emiliano Licea Román
