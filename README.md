@@ -81,7 +81,7 @@ El notebook genera:
 
 ## 🛠️ Requisitos
 
-- Python 3.8+
+- Python 3.9+
 - CUDA (opcional, para entrenamiento con GPU)
 - 8GB+ RAM recomendado
 - Espacio en disco para datasets y modelos
