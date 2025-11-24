@@ -37,7 +37,9 @@ numpy
 
 Para instalarlas, ejecutar:
 
+```bash
 pip install -r requirements.txt
+```
 
 ## Dataset
 
