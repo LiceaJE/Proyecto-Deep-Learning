@@ -27,6 +27,17 @@ Se desarrollaron tres modelos:
 El desempeño de cada modelo se evalúa mediante las métricas estándar de detección: precisión, recall, mAP50 y mAP50-95.
 
 ---
+## Requerimientos
+Este proyecto utiliza las siguientes dependencias, listadas en el archivo requirements.txt:
+
+ultralytics
+matplotlib
+Pillow
+numpy
+
+Para instalarlas, ejecutar:
+
+pip install -r requirements.txt
 
 ## Dataset
 
