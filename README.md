@@ -30,10 +30,10 @@ El desempeño de cada modelo se evalúa mediante las métricas estándar de dete
 ## Requerimientos
 Este proyecto utiliza las siguientes dependencias, listadas en el archivo requirements.txt:
 
-ultralytics
-matplotlib
-Pillow
-numpy
+-ultralytics
+-matplotlib
+-Pillow
+-numpy
 
 Para instalarlas, ejecutar:
 
