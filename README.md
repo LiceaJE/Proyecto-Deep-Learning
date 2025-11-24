@@ -91,7 +91,7 @@ Efectividad del Fine-Tuning: Se demostró que el Fine-Tuning fue exitoso para ad
 
 Superioridad del Data Augmentation: El Modelo 2 demuestra ser la arquitectura más equilibrada. El aumento de datos permitió al modelo generalizar mejor, logrando la mejor Precisión y el mejor mAP del grupo.
 
-Limitación del Hardware/Datos: El hecho de que los tres modelos se estanquen en un mAP de ~0.24 sugiere que el problema ya no se resuelve con hiperparámetros. La resolución de entrada (640px) y la arquitectura pequeña (Nano) son cuellos de botella físicos que impiden detectar las fracturas más finas.
+Limitación del Hardware/Datos: El hecho de que los tres modelos se estanquen en un mAP de ~0.24 sugiere que el problema ya no se resuelve con hiperparámetros. La resolución de entrada (640px) y la arquitectura pequeña (Nano) son cuellos de botella físicos que impiden detectar las fracturas más finas. Además parece que el dataset y su desbalance de clases es un problema que no se pudo solucionar a la hora de entrenar estos modelos.
 
 ## Modelos
 En la carpeta models se encuentran los 3 modelos ya entrenados que se usaron en el colab, el model.pt es el YOLOv8 nano, que no tenía un early stopping, y tampoco data augmentation, el model2.pt es el modelo con early stopping y data augmentation, y el model3.pt es un modelo ya pre-entrenado en fracturas, vuelto a entrenar específicamente para este dataset.
